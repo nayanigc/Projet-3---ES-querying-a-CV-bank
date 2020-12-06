@@ -1,0 +1,33 @@
+
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Welcome</title>
+</head>
+<body>
+<h1>Welcome</h1>
+
+<div>
+    <form action="/cv/" method="post">
+    <tr><td>Search :</td><td><input type="search" name="tag" />   <input type="submit" value="Search" /></td></tr>
+    </form>
+</div>
+
+<div>
+    <form method="POST" enctype="multipart/form-data" action="/add">
+        <table>
+            <tr><td>File to upload (Only PDF):</td><td><input type="file" name="file" /></td></tr>
+            <tr><td></td><td><input type="submit" value="Upload" window.location = "http://localhost:8080/"; /></td></tr>
+        </table>
+    </form>
+</div>
+
+<div>
+
+</div>
+
+
+</body>
+
+</html>
