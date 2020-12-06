@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
@@ -22,11 +21,10 @@ public class CvResource {
     @Value("${error.message}")
     private String errorMessage;
 
-
-
+    
     //Cherche une tag en commun
     @RequestMapping(value = "/cv",method = RequestMethod.POST)
-    public List<File> search_cv (@RequestParam("tag") String tag) throws IOException {
+    public List<Cv> search_cv (@RequestParam("tag") String tag) throws IOException {
         return cvService.findAlltag(tag);
     }
 

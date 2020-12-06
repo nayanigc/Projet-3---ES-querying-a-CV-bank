@@ -8,8 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,17 +27,12 @@ public class CvService {
         return "Succès";
     }
 
-    public List<File> findAlltag (String tag) throws IOException {
-      List<File> cvList = new ArrayList<>();
+    public List<Cv> findAlltag (String tag) throws IOException {
+      List<Cv> cvList = new ArrayList<>();
       Iterable<Cv>cvses = cvRepository.findAll();
-      for(Cv file : cvses) {
-          if(file.getTag().contains(tag)){
-              File convFile = new File(file.getName());
-              convFile.createNewFile();
-              FileOutputStream fos = new FileOutputStream(convFile);
-              fos.write(file.getFile());
-              fos.close();
-              cvList.add(convFile);
+      for(Cv cv : cvses) {
+          if(cv.getTag().contains(tag)){
+              cvList.add(cv);
          }
      }
         return cvList;
