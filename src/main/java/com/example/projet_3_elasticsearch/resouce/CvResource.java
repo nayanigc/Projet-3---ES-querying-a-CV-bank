@@ -21,7 +21,7 @@ public class CvResource {
     @Value("${error.message}")
     private String errorMessage;
 
-    
+
     //Cherche une tag en commun
     @RequestMapping(value = "/cv",method = RequestMethod.POST)
     public List<Cv> search_cv (@RequestParam("tag") String tag) throws IOException {
